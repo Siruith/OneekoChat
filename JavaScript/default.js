@@ -1,6 +1,6 @@
 $(document).ready(function () {
-    var namespace = "/Physx";
-    var socket = io.connect("http://" + document.domain + ":" + location.port + namespace);
+    var namespace = "/Neko";
+    var socket = nya.connect("http://" + document.domain + ":" + location.port + namespace);
 
     socket.on("connected", function() {
         console.log("Connected");

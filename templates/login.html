@@ -7,23 +7,46 @@
 	<body>
 		<p align="center">
 		<a href="https://imgur.com/6fXHutk">
-		<img style="border-radius: 25px; position: absolute; right: 375px; top: 80px;" src="https://i.imgur.com/6fXHutk.png?1" title="OneekoChat" /></a>
+		<img style="border-radius: 25px; position: absolute; right: 375px; top: 80px;" src="https://i.imgur.com/6fXHutk.png?1" title="OneekoChat"/></a>
 		<style>
-		.cancelbtn { width: auto; padding: 10px 18px; background-color: #f44336; }
-		.container { padding: 16px; width: 30%; margin: auto; }
+		body { margin: 0 auto; max-width: 800px; padding: 0 20px; }
+		.containerg { border: 2px solid #dedede; background-color: #f1f1f1; border-radius: 5px; padding: 10px; margin: 10px 0; }
+		.darker { border-color: #ccc; background-color: #ddd; }
+		.container::after { content: ""; clear: both; display: table; }
+		.time-right { float: right; color: #aaa; }
+		.time-left { float: left; color: #999; }
 		.normlbtn { width: auto; padding: 10px 18px; background-color: #090177 }
 		button { background-color: #090177; color: white; padding: 14px 20px; margin: 8px 0; border: none; cursor: pointer; width: 100%; }
 		button:hover { opacity: 0.8; }
     	body {font-family: "Lato", sans-serif}
-	}
+		.vertical-menu { width: 200px; }
+		.vertical-menu a { background-color: #eee; color: black; display: block; padding: 12px; }
+		.vertical-menu a:hover { background-color: #ccc; }
+		.vertical-menu a.active { background-color: #4CAF50; color: white; }
 </style>
 <body style="background-color: #A9BCF5">
 	<div style="position: absolute; right: 390px; top: 190px;">
 		Bienvenido, {{ ActualUser }}
     </div>
-    <div class="container">
-    <form method="POST" action="/2AddF">
-    	<button style="position: relative; left: 300px; top: 210px;" type="submit" method="POST">Add Friends</button>
-    </form>
+	<div class="containerg">
+  <p>{{ Message }}</p>
+  <span class="time-right"></span>
+</div>
+
+<div class="container darker">
+  <p>{{ Message }}</p>
+  <span class="time-left">{{ Time }}</span>
+</div>
+
+<div class="containerg">
+  <p>[{{ Message }}]</p>
+  <span class="time-right">{{ Time }}</span>
+</div>
+
+<div class="container darker">
+  <p>{{ Message }}</p>
+  <span class="time-left">{{ Time }}</span>
+</div>
+    
 </body>
 </html>
