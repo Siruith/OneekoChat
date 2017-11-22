@@ -25,6 +25,7 @@ Nicks = ['b']
 Passwords = ['c']
 UserCount = 0
 ActualUser = str()
+FriendsListRn = []
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -36,11 +37,12 @@ def login():
 	if request.method == 'POST':
 		li = request.form['Login']
 		p = request.form['Password']
+		session['Usuario'] = li
 		if li not in Nicks or p not in Passwords:
 			return render_template('denied.html')
-		elif Nicks.index(li) == Passwords[Nicks.index(li)]:
+		elif Nicks.index(li) == Passwords.index(p):
 			ActualUser = str(li)
-			return render_template('alreadychosen.html')
+			return render_template('login.html')
 		else:
 			return render_template('denied.html')
 	return render_template('log2.html')
@@ -75,6 +77,16 @@ def addu():
 		else:
 			return render_template('registerfailed.html')
 	return render_template('register.html')
+@app.route('/AddF', methods=['POST', 'GET'])
+def addf():
+
+	#Esta funcion añade a los demas usuarios a la lista de contactos del usuario
+
+	if request.method == 'POST' :
+		f = str(request.form['Add'])
+		FriendsListRn.append(f)
+	return render_template('addf.html')
+
 
 @app.route('/2Login', methods=['POST', 'GET'])
 def log():
@@ -84,12 +96,30 @@ def log():
 	return render_template('log2.html')
 
 @app.route('/2AddF', methods=['POST', 'GET'])
-def addf():
+def goaddf():
 
 	#Esta funcion se encarga de llevar al usuario a la pagina para añadir contactos a su lista.
 
 	global Users, Passwords, UserCount
 	return render_template('addf.html')
+@app.route('/2Dashboard', methods=['POST', 'GET'])
+def dashboard():
 
+	#Esta funcion lleva al usuario a su pantalla de inicio donde se mostrarán los chats.
+
+	global Users
+	return render_template('login.html')
+@app.route('/About', methods=['POST', 'GET'])
+def abouta():
+
+	#Esta funcion lleva al usuario a la pagina de informacion de la aplicacion.
+
+	return render_template('about.html')
+@app.route('/Settings', methods=['POST', 'GET'])
+def settings():
+
+	#Esta funcion lleva al usuario a la pagina de configuracion.
+
+	return render_template('settings.html')
 if __name__ == "__main__":
-    io.run(app)
+	io.run(app)
