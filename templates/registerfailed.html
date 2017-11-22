@@ -1,0 +1,41 @@
+<<!DOCTYPE html>
+<html lang="es-ES">
+<html>
+<meta charset="UTF-8">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+	<div style="position:relative; top: 210px;">
+	<body>
+		<p align="center">
+		<a href="https://imgur.com/6fXHutk">
+		<img style="border-radius: 25px" src="https://i.imgur.com/6fXHutk.png?1" title="OneekoChat" /></a>
+		<style>
+		input[type=text], input[type=password] { width: 100%; padding: 12px 20px; margin: auto; display: inline-block; border: 1px solid #090177; box-sizing: border-box; background-color: #A9BCF5; }
+		button { background-color: #090177; color: white; padding: 14px 20px; margin: 8px 0; border: none; cursor: pointer; width: 100%; }
+		button:hover { opacity: 0.8; }
+		.cancelbtn { width: auto; padding: 10px 18px; background-color: #f44336; }
+		.container { padding: 16px; width: 30%; margin: auto; }
+		.normlbtn { width: auto; padding: 10px 18px; background-color: #090177 }
+		@media screen and (max-width: 300px) {
+    	span.psw { display: block; float: none; }
+    	.cancelbtn { width: 100%; }
+    	body {font-family: "Lato", sans-serif}
+	}
+</style>
+<form method="POST" action="/AddU">
+<body style="background-color: #A9BCF5;">
+  <div class="container">
+  	<input style="text-align: center;" type="text" placeholder="Enter Full Name" name="Full Name" required><br><br>
+    <input style="text-align: center;" type="text" placeholder="Enter Username" name="User Name" required><br><br>
+    <input style="text-align: center;" type="password" placeholder="Enter Password" name="Set Password" required><br><br>
+    <input style="text-align: center;" type="password" placeholder="Confirm Password" name="Confirm Password" required><br><br>
+    <button type="submit">Sign Up</button>
+	</form>
+  </div>
+  <p style="text-align: center;">El registro no se ha completado satisfactoriamente, revise que las contraseñas coincidan</p>
+  <div class="container" style="background-color:#A9BCF5">
+  	<form method="POST" action="/2Login">
+    	<button class="cancelbtn" type="submit" method="POST" name="SignUpBtn">Cancel</button>
+    <form>
+  </div>
+</body>
+</html>
